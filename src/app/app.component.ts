@@ -11,6 +11,10 @@ import { TabsPage } from '../pages/tabs/tabs';
 export class MyApp {
   rootPage:any = TabsPage;
 
+  public screenWidth : any;
+  public screenHeight : any;
+  public screenPixelRatio : any;
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -18,5 +22,9 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
+    this.screenWidth = window.screen.width;
+    this.screenHeight = window.screen.height;
+    this.screenPixelRatio = window.devicePixelRatio;
   }
 }
